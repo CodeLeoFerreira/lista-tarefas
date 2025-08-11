@@ -13,28 +13,14 @@
         <h1>To-Do List</h1>
 
         <form class="todo-form">
-            <input type="text" placeholder="Nome da Tarefa" required>
-            <input type="text" placeholder="Digite uma tarefa..." required />
-            <button type="submit">Adicionar</button>
+            <input id="nomeTarefa" type="text" placeholder="Nome da Tarefa" required>
+            <h3 id="mensagemErro"></h3>
+            <input id="textoTarefa" type="text" placeholder="Digite uma tarefa..." required />
+            <button id="salvarTarefa" type="submit">Adicionar</button>
         </form>
 
         <ul class="todo-list">
-            <li>
-                <h1>tarefa 1</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere enim commodi accusantium expedita provident. Quod facere hic et est sint sed maxime pariatur ab dolores, eum perferendis at aspernatur quos.</p>
-                <section>
-                    <button id="concluir" class="btn-tarefas"> concluir</button>
-                    <button id="remover" class="btn-tarefas"> remover</button>
-                </section>
-            </li>
-            <li>
-                <h1>tarefa 2</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere enim commodi accusantium expedita provident. Quod facere hic et est sint sed maxime pariatur ab dolores, eum perferendis at aspernatur quos.</p>
-                <section>
-                    <button id="concluir" class="btn-tarefas"> concluir</button>
-                    <button id="remover" class="btn-tarefas"> remover</button>
-                </section>
-            </li>
+            
         </ul>
     </div>
 

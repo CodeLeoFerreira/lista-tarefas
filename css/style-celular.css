@@ -54,6 +54,12 @@
         .todo-form button:hover {
         background-color: #45a049;
         }
+        #mensagemErro {
+            transition: .5s;
+            text-align: center;
+            color: red;
+            opacity: 0;
+        }
 
         ul.todo-list { /*container tarefas*/
             border: 1px solid #cccccc85;
