@@ -1,5 +1,5 @@
     //lista de tarefas
-const listaTarefas = [{nome:'tarefa 1',conteudo:'exemplo de um conteúdo de uma tarefa'}]
+const listaTarefas = []
 
 const tarefas = function(nomeTarefa, textoTarefa) {
     return {
@@ -13,15 +13,44 @@ const tarefas = function(nomeTarefa, textoTarefa) {
             //exibindo tarefas salvas
             for (i of listaTarefas) {
                 document.querySelector('.todo-list').innerHTML +=
-                `<li>
+                `<li class="tarefa">
                     <h1>${i.nome}</h1> 
                     <p>${i.conteudo}</p>
                     <section>
-                        <button id="concluir" class="btn-tarefas"> concluir</button>
-                        <button id="remover" class="btn-tarefas"> remover</button>
+                        <button id="concluir" class="btn-tarefas btn-concluir"> concluir</button>
+                        <button id="remover" class="btn-tarefas btn-remover"> remover</button>
                     </section>
                 </li>`
             }
+
+                //DELETANDO TAREFAS
+            const botaoRemover = document.querySelectorAll('.btn-remover')
+            botaoRemover.forEach((btn,indexBtn) =>{ //percorrendo todos os botões com a mesma class e retornando o intem e o index
+                btn.addEventListener('click', () =>{ //evento de click em cada botão
+                    
+                    listaTarefas = listaTarefas.map((iten,indexIten) =>{ // pegando o iten e o index do iten da lista
+                        if(indexBtn === indexIten) { //comparando index do botão clicado com a do item da lista se for igual ira excluir a tarefa
+                            listaTarefas.splice(indexIten, 1) // excluindo o itenm
+                            
+                            this.exibirTarefas() //atuaçizando a funcção para mostrar a lista correta e deletar o item
+                        }
+                    })
+                })
+            })
+
+                //CONCLUINDO TAREFAS
+            const botaoConcluir = document.querySelectorAll('.btn-concluir') //selecionando o botão
+            botaoConcluir.forEach((iten, indexBtn) =>{ //percorrendo todo os botoes com esta classe
+                iten.addEventListener('click', (() =>{ //adicionando evento de click a todos eles
+
+                    const tarefaConcluida = document.querySelectorAll('.tarefa') // selecionando o campo q mudara de cor
+                   Array.from(tarefaConcluida).map((itn,idx) =>{ //percorrendo todos que tem a mesma classe
+                        if(indexBtn === idx){ //comparando index do botão clicado com o index do item q mudara de cor
+                            return itn.style.backgroundColor = '#7ff083'
+                        }
+                    })
+                }))
+            })
         },
         salvarTarefa() { //salvando as tarefas e exibindo
             if(nomeTarefa === '') { //caso o campo de nome da tarefa de erro seja vazia ira aparecer mensagem de erro
